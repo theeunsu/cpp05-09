@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:55:14 by eahn              #+#    #+#             */
-/*   Updated: 2024/11/27 23:56:08 by eahn             ###   ########.fr       */
+/*   Updated: 2025/02/18 16:02:39 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,34 @@ class Bureaucrat
 		int grade;
 
 	public:
-}
+		// OCF
+		Bureaucrat();
+		Bureaucrat(const std::string& name, int grade); 
+		Bureaucrat(const Bureaucrat& other);
+		Bureaucrat& operator=(const Bureaucrat& other);
+		~Bureaucrat();
+
+		// Getter
+		std::string getName() const;
+		int getGrade() const;
+
+		// Grade control
+		void incrementGrade();
+		void decrementGrade();
+
+		// Exeption classes (no need for OCF)
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+
+		class GradeTooLawException : public std::exception {
+			public:
+				const char* what() const throw();
+		};
+};
+
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
+
+# endif
