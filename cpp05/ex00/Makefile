@@ -6,20 +6,20 @@
 #    By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 17:38:35 by eahn              #+#    #+#              #
-#    Updated: 2024/11/26 23:21:39 by eahn             ###   ########.fr        #
+#    Updated: 2025/02/23 19:20:49 by eahn             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++17
 
-NAME = ex03
+NAME = ex00
 
 SRC_DIR = ./src/
 INC_DIR = ./inc/
 OBJ_DIR = ./obj/
 
-SRCS = main.cpp
+SRCS = main.cpp Bureaucrat.cpp
 
 NEW_SRCS = $(addprefix $(SRC_DIR), $(SRCS))
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))

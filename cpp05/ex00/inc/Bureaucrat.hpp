@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    Bureaucrat.hpp                                    :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:55:14 by eahn              #+#    #+#             */
-/*   Updated: 2025/02/18 16:02:39 by eahn             ###   ########.fr       */
+/*   Updated: 2025/02/23 19:07:12 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Bureaucrat
 		~Bureaucrat();
 
 		// Getter
-		std::string getName() const;
+		std::string const &getName() const;
 		int getGrade() const;
 
 		// Grade control
@@ -46,11 +46,13 @@ class Bureaucrat
 				const char* what() const throw();
 		};
 
-		class GradeTooLawException : public std::exception {
+		class GradeTooLowException : public std::exception {
 			public:
 				const char* what() const throw();
 		};
 };
+
+// Operator overload
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
 
