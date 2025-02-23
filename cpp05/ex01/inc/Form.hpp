@@ -1,65 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 23:55:14 by eahn              #+#    #+#             */
-/*   Updated: 2025/02/23 22:43:27 by eahn             ###   ########.fr       */
+/*   Created: 2025/02/23 21:54:39 by eahn              #+#    #+#             */
+/*   Updated: 2025/02/23 22:47:55 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 #include <iostream>
-#include <string>
 #include <stdexcept>
-#include "Form.hpp"
+#include <string>
+#include "Bureaucrat.hpp"
 
-class Form; // Forward declaration
+class Bureaucrat;
 
-class Bureaucrat 
-{
+class Form {
 	private:
 		const std::string name;
-		int grade;
+		bool isSigned;
+		const int gradeToSign;
+		const int gradeToExecute;
 
 	public:
 		// OCF
-		Bureaucrat();
-		Bureaucrat(const std::string& name, int grade); 
-		Bureaucrat(const Bureaucrat& other);
-		Bureaucrat& operator=(const Bureaucrat& other);
-		~Bureaucrat();
+		Form();
+		Form(const std::string& name, int gradeToSign, int gradeToExecute);
+		Form(const Form& other);
+		Form& operator=(const Form& other);
+		~Form();
 
 		// Getter
 		std::string const &getName() const;
-		int getGrade() const;
+		bool getIsSigned() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
 
-		// Grade control
-		void incrementGrade();
-		void decrementGrade();
-
-		// Sign form
-		void signForm(Form& form);
-
-		// Exeption classes (no need for OCF)
+		void beSigned(const Bureaucrat& b);
+		
+		// Exception classes
 		class GradeTooHighException : public std::exception
 		{
 			public:
 				const char* what() const throw();
 		};
 
-		class GradeTooLowException : public std::exception {
+		class GradeTooLowException : public std::exception
+		{
 			public:
 				const char* what() const throw();
 		};
+
 };
 
 // Operator overload
+std::ostream& operator<<(std::ostream& out, const Form& form);
 
-std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
 
-# endif
+#endif

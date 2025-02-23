@@ -6,11 +6,12 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 18:46:09 by eahn              #+#    #+#             */
-/*   Updated: 2025/02/23 19:07:52 by eahn             ###   ########.fr       */
+/*   Updated: 2025/02/23 23:01:31 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 // OCF
 Bureaucrat::Bureaucrat(void) : name("Default"), grade(150) {}
@@ -71,6 +72,20 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low!\n";
+}
+
+// Sign form
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this); // Bureaucrat tries to sign the form
+		std::cout << name << " signed " << form.getName() << std::endl;
+	} catch (const std::exception &e)
+	{
+		std::cout << name << " couldn't sign " << form.getName() << " because " << e.what();
+	}
+	
 }
 
 // Operator overload
