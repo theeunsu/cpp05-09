@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:55:14 by eahn              #+#    #+#             */
-/*   Updated: 2025/02/24 00:12:48 by eahn             ###   ########.fr       */
+/*   Updated: 2025/02/24 16:29:23 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class Bureaucrat
 
 		// Sign form
 		void signForm(AForm& form);
+		void executeForm(AForm const &form) const;
 
 		// Exeption classes (no need for OCF)
 		class GradeTooHighException : public std::exception

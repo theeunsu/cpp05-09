@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 00:18:56 by eahn              #+#    #+#             */
-/*   Updated: 2025/02/24 00:28:46 by eahn             ###   ########.fr       */
+/*   Updated: 2025/02/24 18:15:55 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm(const std::string& target);
 		RobotomyRequestForm(const RobotomyRequestForm& other);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
-		~RobotomyRequestForm();
+		virtual ~RobotomyRequestForm();
 
 		void execute(const Bureaucrat& executor) const;
 };

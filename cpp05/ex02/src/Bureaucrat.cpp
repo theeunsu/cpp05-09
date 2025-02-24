@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 18:46:09 by eahn              #+#    #+#             */
-/*   Updated: 2025/02/24 00:13:15 by eahn             ###   ########.fr       */
+/*   Updated: 2025/02/24 17:28:25 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,19 @@ void Bureaucrat::signForm(AForm &form)
 		std::cout << name << " couldn't sign " << form.getName() << " because " << e.what();
 	}
 	
+}
+
+// Execute form
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this); // Bureaucrat tries to execute the form
+		std::cout << name << " executed " << form.getName() << std::endl;
+	} catch (const std::exception& e)
+	{
+		std::cout << name << " couldn't execute " << form.getName() << " because " << e.what();
+	}
 }
 
 // Operator overload
