@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 19:11:16 by eahn              #+#    #+#             */
-/*   Updated: 2025/02/24 18:40:21 by eahn             ###   ########.fr       */
+/*   Updated: 2025/02/27 15:27:01 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int main() {
 }
 
 
-// Test RobotomyRequestForm probability
+// // Test RobotomyRequestForm probability
 // int main() {
 //     printHeader("Bureaucrat Creation");
 //     Bureaucrat trumpi("Trumpi", 1);
@@ -91,8 +91,11 @@ int main() {
 //     printHeader("Signing RobotomyRequestForm");
 //     trumpi.signForm(robotomy);  // sign succeeded (Trumpi 등급 1 ≤ 72)
 
+//     //// Randomly determine seed
+// 	// std::srand(std::time(0)); // determine seed based on current time
+
 //     printHeader("Executing RobotomyRequestForm Multiple Times");
-//     for (int i = 0; i < 5; i++) {  // check 5 times
+//     for (int i = 0; i < 10; i++) {  // check 5 times
 //         std::cout << "\nExecution Attempt #" << (i + 1) << std::endl;
 //         try {
 //             trumpi.executeForm(robotomy);  // 

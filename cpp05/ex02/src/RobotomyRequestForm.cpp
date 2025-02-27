@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 00:19:01 by eahn              #+#    #+#             */
-/*   Updated: 2025/02/24 18:39:11 by eahn             ###   ########.fr       */
+/*   Updated: 2025/02/27 15:26:28 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 		throw FormNotSignedException();
 	if (executor.getGrade() > getGradeToExecute())
 		throw GradeTooLowException();
-
-	// Randomly determine seed
-	// std::srand(std::time(0)); // determine seed based on current time
 
 	std::cout << "Drilling noises..." << std::endl;
 

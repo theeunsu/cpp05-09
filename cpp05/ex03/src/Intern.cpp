@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 23:38:28 by eahn              #+#    #+#             */
-/*   Updated: 2025/02/26 23:54:51 by eahn             ###   ########.fr       */
+/*   Updated: 2025/02/27 15:29:01 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ AForm* Intern::makeForm (const std::string& formName, const std::string& target)
 			ret = new PresidentialPardonForm(target);
 			break ;
 		default:
-			std::cout << "* Intern could not creat form: '" << formName << "' does not exist." << std::endl;
+			std::cout << "* Intern could not create form: '" << formName << "' does not exist." << std::endl;
 			break ;
 	}
 	return ret;

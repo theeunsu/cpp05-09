@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 23:55:14 by eahn              #+#    #+#             */
-/*   Updated: 2025/02/23 22:43:27 by eahn             ###   ########.fr       */
+/*   Updated: 2025/02/27 14:34:26 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ class Bureaucrat
 };
 
 // Operator overload
-
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
 
 # endif
