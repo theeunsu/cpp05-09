@@ -6,20 +6,20 @@
 #    By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 17:38:35 by eahn              #+#    #+#              #
-#    Updated: 2025/02/27 00:02:53 by eahn             ###   ########.fr        #
+#    Updated: 2025/03/04 23:00:41 by eahn             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++17
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = ex03
+NAME = convert
 
 SRC_DIR = ./src/
 INC_DIR = ./inc/
 OBJ_DIR = ./obj/
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
+SRCS = main.cpp ScalarConverter.cpp
 
 NEW_SRCS = $(addprefix $(SRC_DIR), $(SRCS))
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
