@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 00:16:09 by eahn              #+#    #+#             */
-/*   Updated: 2025/03/05 00:21:15 by eahn             ###   ########.fr       */
+/*   Updated: 2025/03/06 12:49:14 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "Data.hpp"
 #include <cstdint> // unitptr_t
+#include <iostream> // std::cout, std::endl
+#include <cstdint>  // uintptr_t
 
 class Serializer
 {
