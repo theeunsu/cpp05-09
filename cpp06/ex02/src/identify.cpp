@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 01:17:09 by eahn              #+#    #+#             */
-/*   Updated: 2025/03/09 01:40:46 by eahn             ###   ########.fr       */
+/*   Updated: 2025/03/09 23:32:09 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void identify(Base& p)
 	std::cout << "Unknown" << std::endl;
 }
 
-
+// dynamic_cast: used to check the type of a pointer/reference at runtime and to safely cast it 
 // Base* p는 nullptr 체크로 안전하게 변환 가능하므로 예외 처리가 필요 없음
 // -> even if dynamic_cast fails, it will return nullptr without crashing
 // Base& p는 nullptr이 불가능하기 때문에 예외 처리가 필요함
+// -> if dynamic_cast fails, it will throw a std::bad_cast exception

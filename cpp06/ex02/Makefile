@@ -6,7 +6,7 @@
 #    By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 17:38:35 by eahn              #+#    #+#              #
-#    Updated: 2025/03/09 01:23:43 by eahn             ###   ########.fr        #
+#    Updated: 2025/03/09 23:16:07 by eahn             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC_DIR = ./src/
 INC_DIR = ./inc/
 OBJ_DIR = ./obj/
 
-SRCS = main.cpp A.cpp B.cpp C.cpp Base.cpp generate.cpp identify.cpp
+SRCS = main.cpp A.cpp B.cpp C.cpp Base.cpp Generate.cpp Identify.cpp
 
 NEW_SRCS = $(addprefix $(SRC_DIR), $(SRCS))
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))

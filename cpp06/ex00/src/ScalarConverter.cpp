@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 12:37:15 by eahn              #+#    #+#             */
-/*   Updated: 2025/03/04 23:12:34 by eahn             ###   ########.fr       */
+/*   Updated: 2025/03/09 23:03:19 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,9 @@ void ScalarConverter::handleChar(const std::string &str)
     char c = str[0];
 
     std::cout << "char: '" << c << "'" << std::endl;
-    std::cout << "int: " << static_cast<int>(c) << std::endl;
-    std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
-    std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
+    std::cout << "int: " << static_cast<int>(c) << std::endl; // promotion
+    std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl; // promotion
+    std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl; // promotion    
 }
 
 void ScalarConverter::handleInt(const std::string &str)
@@ -126,13 +126,13 @@ void ScalarConverter::handleInt(const std::string &str)
     else if (intVal >= 48 && intVal <= 57)
         std::cout << "Non displayable" << std::endl;
     else
-        std::cout << "'" << static_cast<char>(intVal) << "'" << std::endl;
+        std::cout << "'" << static_cast<char>(intVal) << "'" << std::endl; // Demotion
 
     std::cout << "int: " << intVal << std::endl;
 
     std::cout << std::fixed << std::setprecision(1);
-    std::cout << "float: " << static_cast<float>(intVal) << "f" << std::endl;
-    std::cout << "double: " << static_cast<double>(intVal) << std::endl;
+    std::cout << "float: " << static_cast<float>(intVal) << "f" << std::endl; // promotion
+    std::cout << "double: " << static_cast<double>(intVal) << std::endl; // promotion
 }
 
 void ScalarConverter::handleFloat(const std::string &str)
@@ -146,7 +146,7 @@ void ScalarConverter::handleFloat(const std::string &str)
     std::cout << "char: ";
     if (val >= 0 && val <= 127)
     {
-        char c = static_cast<char>(val);
+        char c = static_cast<char>(val); // demotion
         if (isprint(c))
             std::cout << "'" << c << "'" << std::endl;
         else
@@ -159,11 +159,11 @@ void ScalarConverter::handleFloat(const std::string &str)
     if (val > static_cast<double>(INT_MAX) || val < static_cast<double>(INT_MIN))
         std::cout << "impossible" << std::endl;
     else
-        std::cout << static_cast<int>(val) << std::endl;
+        std::cout << static_cast<int>(val) << std::endl; // demotion
 
     std::cout << std::fixed << std::setprecision(1);
     std::cout << "float: " << static_cast<float>(val) << "f" << std::endl;
-    std::cout << "double: " << val << std::endl;
+    std::cout << "double: " << val << std::endl; // promotion
 }
 
 void ScalarConverter::handleDouble(const std::string &str)
@@ -177,7 +177,7 @@ void ScalarConverter::handleDouble(const std::string &str)
     std::cout << "char: ";
     if (val >= 0 && val <= 127)
     {
-        char c = static_cast<char>(val);
+        char c = static_cast<char>(val); // demotion
         if (isprint(c))
             std::cout << "'" << c << "'" << std::endl;
         else
@@ -190,10 +190,10 @@ void ScalarConverter::handleDouble(const std::string &str)
     if (val > static_cast<double>(INT_MAX) || val < static_cast<double>(INT_MIN))
         std::cout << "impossible" << std::endl;
     else
-        std::cout << static_cast<int>(val) << std::endl;
+        std::cout << static_cast<int>(val) << std::endl; // demotion
 
     std::cout << std::fixed << std::setprecision(1);
-    std::cout << "float: " << static_cast<float>(val) << "f" << std::endl;
+    std::cout << "float: " << static_cast<float>(val) << "f" << std::endl; // demotion
     std::cout << "double: " << val << std::endl;
 }
 

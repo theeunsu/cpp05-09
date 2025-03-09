@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 12:25:51 by eahn              #+#    #+#             */
-/*   Updated: 2025/03/03 12:38:23 by eahn             ###   ########.fr       */
+/*   Updated: 2025/03/09 22:55:03 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class ScalarConverter
 {
     private:
         // Check Type Function
-        static bool isChar(std::string const &str);
+        static bool isChar(std::string const &str); // static method can be called without instantiating the class
         static bool isInt(std::string const &str);
         static bool isFloat(std::string const &str);
         static bool isDouble(std::string const &str);

@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 12:24:11 by eahn              #+#    #+#             */
-/*   Updated: 2025/03/06 12:53:07 by eahn             ###   ########.fr       */
+/*   Updated: 2025/03/09 23:08:15 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,5 @@ Serializer::Serializer() {} // private constructor: cannot be instantiated
 Serializer::Serializer(const Serializer&) {} // no need to put other cause it won't be used
 Serializer& Serializer::operator=(const Serializer&) { return *this; } // no need to put other cause it won't be used
 Serializer::~Serializer() {} // destructor
+
+// reinterpret_cast is used to convert a pointer into an integer type or vice versa
