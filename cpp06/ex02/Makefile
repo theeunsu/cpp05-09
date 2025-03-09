@@ -6,20 +6,20 @@
 #    By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 17:38:35 by eahn              #+#    #+#              #
-#    Updated: 2025/03/09 00:58:02 by eahn             ###   ########.fr        #
+#    Updated: 2025/03/09 01:23:43 by eahn             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = serializer
+NAME = generate
 
 SRC_DIR = ./src/
 INC_DIR = ./inc/
 OBJ_DIR = ./obj/
 
-SRCS = main.cpp Serializer.cpp
+SRCS = main.cpp A.cpp B.cpp C.cpp Base.cpp generate.cpp identify.cpp
 
 NEW_SRCS = $(addprefix $(SRC_DIR), $(SRCS))
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
