@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 22:27:49 by eahn              #+#    #+#             */
-/*   Updated: 2025/03/11 23:19:51 by eahn             ###   ########.fr       */
+/*   Updated: 2025/03/14 15:10:44 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ class Array
 		Array() : _data(nullptr), _size(0) {} 
 
 		// constructor: array of size n
-		// initialize list used (C++11)
+		// initialize list {} used (C++11)
 		Array(unsigned int n) : _data(new T[n]{}), _size(n)
 		{
-			std::cout << "Array of size " << _size << " created." << std::endl;
+			// std::cout << "Array of size " << _size << " created." << std::endl;
 		}
 
 		// copy constructor (deep copy)
 		Array(const Array &other) : _data(new T[other._size]{}), _size(other._size)
 		{
 			std::copy(other._data, other._data + _size, _data); 
-			std::cout << "Array copied (copy constructor)." << std::endl;
+			// std::cout << "Array copied (copy constructor)." << std::endl;
 		}
 
 		// move constructor (c++17) - prevent unnecessary copy
@@ -47,7 +47,7 @@ class Array
 		{
 			other._size = 0;
 			other._data = nullptr;
-			std::cout << "Array moved (move constructor)." << std::endl;
+			// std::cout << "Array moved (move constructor)." << std::endl;
 		}
 
 		// assignment operator overload (deep copy)
@@ -60,7 +60,7 @@ class Array
 				_data = new T[_size];
 				std::copy(other._data, other._data + _size, _data);
 			}
-			std::cout << "Array copied (assignment operator)." << std::endl;
+			// std::cout << "Array copied (assignment operator)." << std::endl;
 			return *this;
 		}
 
@@ -76,7 +76,7 @@ class Array
 				other._size = 0;
 				other._data = nullptr;
 			}
-			std::cout << "Array moved (move assignment operator)." << std::endl;
+			// std::cout << "Array moved (move assignment operator)." << std::endl;
 			return *this;
 		}
 
@@ -108,3 +108,7 @@ class Array
 
 // from C++17, move constructor, move assignment operator can be used
 // -> prevent unnecessary copy, using pointer to improve performance
+
+//The {} ensures default initialization: (only for C++11)
+// If T is a primitive type (int, double, etc.), elements are zero-initialized.
+// If T is a class, its default constructor is called for each element
