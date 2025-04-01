@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:27:22 by eahn              #+#    #+#             */
-/*   Updated: 2025/04/02 00:10:52 by eahn             ###   ########.fr       */
+/*   Updated: 2025/04/02 00:14:28 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,12 +223,3 @@ bool BitcoinExchange::isValidValue(const std::string &valueStr, float& value) co
 	}
 	return true;
 }
-
-/*
-/ Example of input file:
-/_ExchangeRates = {
-    "2011-01-01" → 0.25,
-    "2011-01-03" → 0.30,
-    "2011-01-09" → 0.32,
-|
-*/
