@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:27:22 by eahn              #+#    #+#             */
-/*   Updated: 2025/04/01 23:42:19 by eahn             ###   ########.fr       */
+/*   Updated: 2025/04/02 00:00:21 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void BitcoinExchange::loadDatabase(const std::string& filename)
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << "Error: invalid rate format in line -> " << line << std::endl;
+			std::cerr << "Error: invalid rate format in line => " << line << std::endl;
 		}
 	}
 }
@@ -94,7 +94,7 @@ void BitcoinExchange::processInputFile(const std::string& inputFilename) const
 		// split "date | value"
 		if (!std::getline(ss, datePart, '|') || !std::getline(ss, valuePart))
 		{
-			std::cerr << "Error: bad input -> " << line << std::endl;
+			std::cerr << "Error: bad input => " << line << std::endl;
 			continue;
 		}
 
@@ -104,7 +104,7 @@ void BitcoinExchange::processInputFile(const std::string& inputFilename) const
 		// check date format
 		if (!isValidDate(date))
 		{
-			std::cerr << "Error: bad input -> " << date << std::endl;
+			std::cerr << "Error: bad input => " << date << std::endl;
 			continue;
 		}
 
@@ -121,7 +121,7 @@ void BitcoinExchange::processInputFile(const std::string& inputFilename) const
 		{
 			if (it == _exchangeRates.begin())
 			{
-				std::cerr << "Error: no earlier date found in DB for -> " << date << std::endl;
+				std::cerr << "Error: no earlier date found in DB for => " << date << std::endl;
 				continue;
 			}
 			--it; // use the closest lower (earlier) date
@@ -182,7 +182,7 @@ bool BitcoinExchange::isValidDate(const std::string& date) const
 	}
 	catch (const std::exception& e) 
 	{
-		std::cerr << "Error: invalid date format -> " << date 
+		std::cerr << "Error: invalid date format => " << date 
 				<< " ("<< e.what() << ")" << std::endl;
 		return false;
 	}
@@ -196,7 +196,7 @@ bool BitcoinExchange::isValidValue(const std::string &valueStr, float& value) co
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "Error: bad value -> " << valueStr
+		std::cerr << "Error: bad value => " << valueStr
 				<< " (" << e.what() << ")" << std::endl;
 		return false;
 	}
