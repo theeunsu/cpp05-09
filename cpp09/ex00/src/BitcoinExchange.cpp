@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:27:22 by eahn              #+#    #+#             */
-/*   Updated: 2025/04/02 00:00:21 by eahn             ###   ########.fr       */
+/*   Updated: 2025/04/02 00:10:52 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,14 @@ void BitcoinExchange::processInputFile(const std::string& inputFilename) const
 	}
 
 	std::string line;
-	std::getline(file, line); // Skip header line
+	bool hasValidLine = false;
+
+	// skip header line
+	if (!std::getline(file, line))
+	{
+		std::cerr << "Error: empty input file." << std::endl;
+		return;
+	}
 
 	while (std::getline(file, line))
 	{
@@ -131,8 +138,10 @@ void BitcoinExchange::processInputFile(const std::string& inputFilename) const
 		float result = rate * value;
 
 		std::cout << date << " => " << value << " = " << result << std::endl;
+		hasValidLine = true;
 	}
-	
+	if (!hasValidLine)
+		std::cerr << "Error: no valid line found in input file." << std::endl;
 	file.close();
 }
 
