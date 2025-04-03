@@ -6,7 +6,7 @@
 /*   By: eahn <eahn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 17:27:49 by eahn              #+#    #+#             */
-/*   Updated: 2025/04/03 18:28:47 by eahn             ###   ########.fr       */
+/*   Updated: 2025/04/03 23:32:26 by eahn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,84 @@ void PmergeMe::printContainer(const Container& c, const std::string& label)
 	for (typename Container::const_iterator it = c.begin(); it != c.end(); ++it)
 		std::cout << *it << " ";
 	std::cout << std::endl;
+}
+
+// Ford-Johnson sort implementation using std::vector
+void PmergeMe::fordJohnsonSort(std::vector<int>& vec)
+{
+	if (vec.size() <= 1) // already sorted if size is 1 or 0
+		return;
+	
+	std::vector<std::pair<int, int>> pairs; // to store pairs (a, b) with a <= b
+	int i = 0;
+	while (i + 1 < static_cast<int>(vec.size()))
+	{
+		int a = vec[i];
+		int b = vec[i + 1];
+		if (a > b)
+			std::swap(a, b);
+		pairs.push_back(std::make_pair(a, b)); // store the pair
+		++i;
+		++i; // move to the next pair
+	}
+	if (i < static_cast<int>(vec.size())) // if there's an odd element left
+	{
+		pairs.push_back(std::make_pair(vec[i], -1)); // leftover element with dummy value(-1)
+	}	
+
+	std::vector<int> mainChain;
+	for (size_t j = 0; j < pairs.size(); ++j)
+	{
+		if (pairs[j].second != -1) // ignore leftover
+			mainChain.push_back(pairs[j].second); // collect larger values (second one)
+	}
+
+	fordJohnsonSort(mainChain); // recursively sort the larger values first
+
+	for (size_t j = 0; j < pairs.size(); ++j)
+	{
+		mainChain.insert(std::lower_bound(mainChain.begin(), mainChain.end(), pairs[j].first), pairs[j].first);
+		// insert(position, value)
+	}
+	vec = mainChain; // update the original vector
+}
+
+// Ford-Johnson sort implementation using std::deque
+void PmergeMe::fordJohnsonSort(std::deque<int>& deq)
+{
+	if (deq.size() <= 1)
+		return;
+	
+	std::deque<std::pair<int, int>> pairs; 
+	int i = 0;
+	while (i + 1 < static_cast<int>(deq.size()))
+	{
+		int a = deq[i];
+		int b = deq[i + 1];
+		if (a > b)
+			std::swap(a, b);
+		pairs.push_back(std::make_pair(a, b));
+		++i;
+		++i;
+	}
+	if (i < static_cast<int>(deq.size()))
+	{
+		pairs.push_back(std::make_pair(deq[i], -1)); // leftover element with dummy value(-1)
+	}
+
+	std::deque<int> mainChain;
+	for (size_t j = 0; j < pairs.size(); ++j)
+	{
+		if (pairs[j].second != -1) // ignore leftover
+			mainChain.push_back(pairs[j].second);
+	}
+
+	fordJohnsonSort(mainChain); // recursively sort the larger values first
+
+	for (size_t j = 0; j < pairs.size(); ++j)
+	{
+		mainChain.insert(std::lower_bound(mainChain.begin(), mainChain.end(), pairs[j].first), pairs[j].first);
+	}
+
+	deq = mainChain; // update the original deque
 }
